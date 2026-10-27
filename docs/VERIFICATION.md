@@ -25,6 +25,20 @@ This confirms that the README's panning instructions refer to a shipped public
 asset, rather than a source-only or unpublished feature. Fixed-mode window
 movement and CGAPAN's larger framebuffer are described separately.
 
+## Public front door
+
+[astrobleem/windows-3-cga](https://github.com/astrobleem/windows-3-cga) is public
+with `main` as its default branch. The anonymous repository page returned
+HTTP 200 and contained GitHub's rendered README, all seven expected images,
+descriptive image alternatives and working section anchors. All eleven
+published header/screenshot assets returned HTTP 200 anonymously and matched
+their local SHA-256 identities. The anonymous installation download also
+matched the package identity above.
+
+The browser service exposed no browser surfaces for an interactive visual
+inspection. Verification used the public rendered HTML, public asset responses
+and direct inspection of the source PNGs.
+
 ## Keeping this page honest
 
 Installation links intentionally follow the canonical current `windows-xt`
@@ -37,3 +51,4 @@ the current CGA guide, and the capture provenance. Keep software changes,
 release management and issue reports in the canonical project. Describe
 emulator evidence as emulator evidence and preserve each reused capture's
 scope. The canonical component notices remain authoritative for the software.
+
