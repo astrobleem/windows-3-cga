@@ -1,17 +1,17 @@
 <p align="center">
-  <img src="assets/CGA.svg" width="900" alt="The sixteen-color heresy - Windows 3.0 on IBM CGA, with a strip of all sixteen RGBI colors">
+  <img src="assets/CGA.svg" width="900" alt="Windows 3.0 on IBM CGA, with a strip of all sixteen RGBI colors">
 </p>
 
 <h1 align="center">Windows 3.0 on CGA</h1>
 
 <p align="center">
-  <strong>160 x 100 pixels. Sixteen RGBI colors. A wonderfully unreasonable desktop.</strong>
+  <strong>160 × 100 pixels. Sixteen RGBI colors. A compact Windows desktop.</strong>
 </p>
 
 <p align="center">
-  <a href="https://github.com/astrobleem/oemdisplay-tandy/releases/download/windows-xt/CGA.ZIP"><strong>Download CGA.ZIP</strong></a> �
-  <a href="#get-it-running">Install</a> �
-  <a href="#the-heresy-explained">How it works</a> �
+  <a href="https://github.com/astrobleem/oemdisplay-tandy/releases/download/windows-xt/CGA.ZIP"><strong>Download CGA.ZIP</strong></a> ·
+  <a href="#get-it-running">Install</a> ·
+  <a href="#how-it-works">How it works</a> ·
   <a href="https://github.com/astrobleem/oemdisplay-tandy/tree/main/src/cga">Driver source</a>
 </p>
 
@@ -21,8 +21,8 @@
   <em>Paintbrush, meet CGA. The landscape itself uses all sixteen colors.</em>
 </p>
 
-The heresy: ask CGA's **text-mode circuitry** to behave like a sixteen-color
-framebuffer, then let Windows 3.0 draw into it. Tiny bitmap fonts and compact
+The driver uses CGA's **text-mode circuitry** as a sixteen-color framebuffer
+for Windows 3.0. Tiny bitmap fonts and compact
 controls make room for actual windows on a screen just 100 pixels tall.
 
 This repository is the CGA front door for
@@ -51,24 +51,25 @@ grabber, artwork and helpers. Windows 3.1 is unsupported.
    takes several minutes on a 4.77 MHz 8088.
 3. Change to your Windows drive and directory, then start **`WIN /R`**.
 
-That's the fixed 160 x 100 desktop. For a larger desktop, use `PAN` in place of
-`100` during installation. Setup installs and starts its matching helper
-automatically. Everything needed for installation runs on the DOS computer;
+That's the fixed 160 × 100 desktop. For a larger desktop, use `PAN` in place of
+`100` during installation. Setup installs PAN automatically. A previous OFF
+choice is preserved; run `PAN` inside Windows to enable it again.
+Everything needed for installation runs on the DOS computer;
 no Python, modern-PC preparation or individual support-file hunt is required.
 
-**[Full CGA install guide](https://github.com/astrobleem/oemdisplay-tandy/blob/main/docs/CGA.MD)** �
+**[Full CGA install guide](https://github.com/astrobleem/oemdisplay-tandy/blob/main/docs/CGA.MD)** ·
 **[Current release and checksums](https://github.com/astrobleem/oemdisplay-tandy/releases/tag/windows-xt)**
 
-## Pick your flavor of unreasonable
+## Choose a display mode
 
 One download contains four choices. Exit Windows and rerun Setup to change modes.
 
 | Setup choice | Windows desktop | What the CGA screen shows |
 | --- | --- | --- |
-| `100` | 160 x 100, 16 colors | The complete desktop, with compact fonts and controls |
-| `PAN` | 320 x 200, 16 colors | A movable 160 x 100 viewport into the larger desktop |
-| `320` | 320 x 200, 4 colors | Black, bright cyan, magenta and white |
-| `640` | 640 x 200, 2 colors | Black and white |
+| `100` | 160 × 100, 16 colors | The complete desktop, with compact fonts and controls |
+| `PAN` | 320 × 200, 16 colors | A movable 160 × 100 viewport into the larger desktop |
+| `320` | 320 × 200, 4 colors | Black, bright cyan, magenta and white |
+| `640` | 640 × 200, 2 colors | Black and white |
 
 ### More desktop than screen
 
@@ -83,14 +84,14 @@ left, and **Ctrl+Alt+End** reveals the active window's bottom/right. Edge scroll
 and following the active window help reach controls outside the view. Queued
 commands are applied after busy drawing finishes.
 
-Open Panning settings with **Ctrl+Alt+S**, or run **`PANCFG /SETTINGS`** inside
+Open Panning settings with **Ctrl+Alt+S**, or run **`PAN /SETTINGS`** inside
 Windows. Apply saves settings; Cancel discards unapplied edits. Horizontal steps
 round up to multiples of eight pixels. See the
 **[illustrated panning guide](https://github.com/astrobleem/oemdisplay-tandy/blob/main/docs/PANNING.MD)**.
 
 In fixed `100` mode, those movement shortcuts move **windows and active client
-contents** to expose hidden controls; the framebuffer remains 160 x 100.
-Fixed `320` and `640` can opt into a window workspace through `PANCFG`.
+contents** to expose hidden controls; the framebuffer remains 160 × 100.
+Fixed `320` and `640` can opt into a window workspace through `PAN`.
 
 <p align="center">
   <img src="assets/PANPAINT.PNG" width="640" alt="An actual emulator frame of Paintbrush showing part of PARTY.BMP through CGAPAN's 160 by 100 viewport">
@@ -98,19 +99,19 @@ Fixed `320` and `640` can opt into a window workspace through `PANCFG`.
   <em>Paintbrush on the larger desktop, viewed through the same little screen.</em>
 </p>
 
-## The heresy, explained
+## How it works
 
-Ordinary CGA graphics offers 320 x 200 with four colors or 640 x 200 with two.
+Ordinary CGA graphics offers 320 × 200 with four colors or 640 × 200 with two.
 CGA text attributes, however, can select from the full **RGBI palette**: red,
 green, blue and intensity.
 
-The 160 x 100 driver programs the CRTC for **80 columns and 100 short character
+The 160 × 100 driver programs the CRTC for **80 columns and 100 short character
 rows**, with **two scanlines per row**. Every cell contains the right-half-block
 character (`DEh`). Its background paints the left logical pixel; its foreground
 paints the right. Disable blinking to make all sixteen background colors
 available, and each cell becomes **two independently colored pixels**.
 
-**80 x 2 = 160 pixels across. 100 rows = 100 pixels down. All sixteen colors.**
+**80 × 2 = 160 pixels across. 100 rows = 100 pixels down. All sixteen colors.**
 
 Windows draws through the display driver's four-plane shadow bitmap in RAM;
 the driver converts the result into character/attribute pairs in CGA memory.
@@ -129,7 +130,7 @@ and [implementation record](https://github.com/astrobleem/oemdisplay-tandy/blob/
 | --- | --- |
 | [![Notepad File Open with compact bitmap fonts](assets/OPEN100X.PNG)](assets/OPEN100.PNG) | [![Windows 3.0 File Manager at 160 by 100](assets/FILE100X.PNG)](assets/FILE100.PNG) |
 
-| Classic CGA: 320 x 200, four-color mode | 640 x 200, monochrome |
+| Classic CGA: 320 × 200, four-color mode | 640 × 200, monochrome |
 | --- | --- |
 | ![Notepad File Open in CGA four-color mode](assets/OPEN320X.PNG) | ![Notepad File Open in CGA monochrome mode](assets/OPEN640X.PNG) |
 
@@ -147,7 +148,7 @@ Coverage includes installation and recovery, compact dialogs, Paintbrush,
 viewport boundaries, off-screen drawing and queued panning controls.
 Physical cards, clone CRTCs and composite output remain unqualified; PCjr,
 Tandy and EGA/VGA are separate targets. Extended characters in the compact
-160 x 100 fonts currently use fallback boxes.
+160 × 100 fonts currently use fallback boxes.
 
 To undo, exit Windows and run this from the retained package folder:
 
@@ -161,17 +162,16 @@ restores whole saved INIs and can lose later INI edits.
 ## Follow the wires
 
 - **[Canonical source and support](https://github.com/astrobleem/oemdisplay-tandy)**
-  - report problems and contribute driver changes there.
+  — report problems and contribute driver changes there.
 - **[CGA qualification records](https://github.com/astrobleem/oemdisplay-tandy/tree/main/docs/QUAL/CGA)**
-  � [CGAPAN evidence](https://github.com/astrobleem/oemdisplay-tandy/tree/main/docs/QUAL/CGAPAN)
-  � [Shared panning evidence](https://github.com/astrobleem/oemdisplay-tandy/tree/main/docs/QUAL/UPAN).
+  · [CGAPAN evidence](https://github.com/astrobleem/oemdisplay-tandy/tree/main/docs/QUAL/CGAPAN)
+  · [Shared panning evidence](https://github.com/astrobleem/oemdisplay-tandy/tree/main/docs/QUAL/UPAN).
 - **[Other hardware](https://github.com/astrobleem/oemdisplay-tandy/blob/main/docs/PLATFORM.MD)**
-  - the rest of the Windows XT family.
+  — the rest of the Windows XT family.
 - **[Component notices](https://github.com/astrobleem/oemdisplay-tandy/blob/main/src/cga/NOTICE.TXT)**
-  - original fonts and helpers retain their licenses; adapted Microsoft/DDK
+  — original fonts and helpers retain their licenses; adapted Microsoft/DDK
   components retain their own notices.
-- **[Front-door verification record](docs/VERIFICATION.md)** - the source revision
+- **[Front-door verification record](docs/VERIFICATION.md)** — the source revision
   and public package checked for this page.
 
-<p align="center"><strong>Sixteen colors. One hundred rows. Absolutely Windows.</strong></p>
-
+<p align="center"><strong>Windows 3.0. 160 × 100. Sixteen RGBI colors.</strong></p>

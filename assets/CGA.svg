@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="0 0 960 240" role="img" aria-labelledby="title desc">
-  <title id="title">The sixteen-color heresy</title>
+  <title id="title">Windows 3.0 in sixteen colors</title>
   <desc id="desc">Windows 3.0 on IBM CGA. 160 by 100 pixels and sixteen RGBI colors, presented in a retro window above a full CGA palette strip.</desc>
   <rect width="960" height="240" rx="10" fill="#11162a"/>
   <path d="M18 18H942V222H18Z" fill="#c0c0c0"/>
@@ -9,7 +9,7 @@
   <rect x="33" y="33" width="20" height="20" fill="#fff"/>
   <rect x="37" y="41" width="12" height="4" fill="#000"/>
   <text x="480" y="49" text-anchor="middle" fill="#fff" font-family="monospace" font-size="17" font-weight="bold">WINDOWS 3.0 / IBM CGA</text>
-  <text x="480" y="107" text-anchor="middle" fill="#55ffff" font-family="monospace" font-size="18" letter-spacing="3">THE SIXTEEN-COLOR HERESY</text>
+  <text x="480" y="107" text-anchor="middle" fill="#55ffff" font-family="monospace" font-size="18" letter-spacing="3">WINDOWS 3.0 IN SIXTEEN COLORS</text>
   <text x="480" y="151" text-anchor="middle" fill="#fff" font-family="monospace" font-size="34" font-weight="bold">160 x 100 x 16</text>
   <g transform="translate(32 177)">
     <path d="M0 0H56V32H0Z" fill="#000"/><path d="M56 0H112V32H56Z" fill="#0000aa"/>

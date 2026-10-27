@@ -44,3 +44,9 @@ Sources with raw memory, image identities and exact scope:
 
 These records establish emulator behavior. Physical IBM cards, clone CRTCs,
 RGBI monitor output and composite output remain separate qualification work.
+
+The [CGA installation guide](https://github.com/astrobleem/oemdisplay-tandy/blob/main/docs/CGA.MD)
+also includes genuine DOS directory, successful installer and Windows launch
+screens. Their [separate capture notes](https://github.com/astrobleem/oemdisplay-tandy/blob/main/docs/CGA/INSTALL/CAPTURES.MD)
+identify the preceding public packet used for those frames and the unchanged
+commands in the current release.

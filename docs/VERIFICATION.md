@@ -1,10 +1,10 @@
 # Front-door verification
 
-Checked on **2026-10-27** against canonical `main` at
+Initial front-door check on **2026-10-27** against canonical `main` at
 [`c40e380e13b6e7cc6201b1958c580fd287cf4374`](https://github.com/astrobleem/oemdisplay-tandy/commit/c40e380e13b6e7cc6201b1958c580fd287cf4374),
 which merges the unified panning integration in PR #205.
 
-## The actual public download
+## Initial public download check
 
 - Release: [windows-xt](https://github.com/astrobleem/oemdisplay-tandy/releases/tag/windows-xt), public rather than a draft.
 - Asset: [CGA.ZIP](https://github.com/astrobleem/oemdisplay-tandy/releases/download/windows-xt/CGA.ZIP).
@@ -46,9 +46,20 @@ release. The hash above is a dated verification record, not a promise that a
 moving current asset will keep the same bytes. For current identities, use
 the release's current manifest and checksum file.
 
+The installation-guide revision was checked later on 2026-10-27 against
+canonical `main` at `cb923a717dc535960537d1a620b4814849a1c6eb`. Its current
+`CGA.ZIP` is **460,460 bytes**, SHA-256
+`1768cffab6a770ee01494fb493c9ffe4e3caf2a41a9617b2ccec7bc9909e37d2`.
+That package adds the common `PAN` entry; current instructions use
+`PAN /SETTINGS`. Its four display-driver files are unchanged. The genuine
+DOS installation screenshots use the preceding package identified above;
+the guide explicitly states that file sizes and helper-copy lines differ,
+while the layout, mode commands, success message and Windows launch remain
+the same. See the
+[installation capture notes](https://github.com/astrobleem/oemdisplay-tandy/blob/main/docs/CGA/INSTALL/CAPTURES.MD).
+
 When updating this page, check the public asset's own README and members,
 the current CGA guide, and the capture provenance. Keep software changes,
 release management and issue reports in the canonical project. Describe
 emulator evidence as emulator evidence and preserve each reused capture's
 scope. The canonical component notices remain authoritative for the software.
-
