@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="0 0 960 240" role="img" aria-labelledby="title desc">
+  <title id="title">The sixteen-color heresy</title>
+  <desc id="desc">Windows 3.0 on IBM CGA. 160 by 100 pixels and sixteen RGBI colors, presented in a retro window above a full CGA palette strip.</desc>
+  <rect width="960" height="240" rx="10" fill="#11162a"/>
+  <path d="M18 18H942V222H18Z" fill="#c0c0c0"/>
+  <path d="M21 21H939V219H21Z" fill="#fff"/>
+  <path d="M25 25H935V215H25Z" fill="#000"/>
+  <rect x="29" y="29" width="902" height="28" fill="#0000aa"/>
+  <rect x="33" y="33" width="20" height="20" fill="#fff"/>
+  <rect x="37" y="41" width="12" height="4" fill="#000"/>
+  <text x="480" y="49" text-anchor="middle" fill="#fff" font-family="monospace" font-size="17" font-weight="bold">WINDOWS 3.0 / IBM CGA</text>
+  <text x="480" y="107" text-anchor="middle" fill="#55ffff" font-family="monospace" font-size="18" letter-spacing="3">THE SIXTEEN-COLOR HERESY</text>
+  <text x="480" y="151" text-anchor="middle" fill="#fff" font-family="monospace" font-size="34" font-weight="bold">160 x 100 x 16</text>
+  <g transform="translate(32 177)">
+    <path d="M0 0H56V32H0Z" fill="#000"/><path d="M56 0H112V32H56Z" fill="#0000aa"/>
+    <path d="M112 0H168V32H112Z" fill="#00aa00"/><path d="M168 0H224V32H168Z" fill="#00aaaa"/>
+    <path d="M224 0H280V32H224Z" fill="#aa0000"/><path d="M280 0H336V32H280Z" fill="#aa00aa"/>
+    <path d="M336 0H392V32H336Z" fill="#aa5500"/><path d="M392 0H448V32H392Z" fill="#aaa"/>
+    <path d="M448 0H504V32H448Z" fill="#555"/><path d="M504 0H560V32H504Z" fill="#5555ff"/>
+    <path d="M560 0H616V32H560Z" fill="#55ff55"/><path d="M616 0H672V32H616Z" fill="#55ffff"/>
+    <path d="M672 0H728V32H672Z" fill="#ff5555"/><path d="M728 0H784V32H728Z" fill="#ff55ff"/>
+    <path d="M784 0H840V32H784Z" fill="#ffff55"/><path d="M840 0H896V32H840Z" fill="#fff"/>
+  </g>
+</svg>
